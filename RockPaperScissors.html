@@ -1,0 +1,59 @@
+<html>
+<title>Rock Paper Scissors</title>
+<body>
+  <script>
+
+    function game(){
+      let playerSelection = prompt("Choose your Play! Rock, Paper or Scissors").toLowerCase()
+      let computerSelection = computerPlay()
+      console.log("Computer chose " + computerSelection)
+      return playRound(playerSelection, computerSelection)
+    }
+
+    function playRound(playerSelection, computerSelection){
+      if (playerSelection == computerSelection) {
+        return "It's a Tie!"
+      }
+      else {
+        switch(playerSelection){
+          case "rock":
+            if (computerSelection == "paper"){
+              return "You Lose! Paper beats Rock"
+            }
+            else return "You Win! Rock beats Scissors"
+          case "paper":
+            if (computerSelection == "scissors"){
+              return "You Lose! Scissors beats Paper"
+            }
+            else return "You Win! Paper beats Rock"
+          case "scissors":
+            if (computerSelection == "rock"){
+              return "You Lose! Rock beats Scissors"
+            }
+            else return "You Win! Scissors beats Paper"
+        }
+      }
+
+    }
+
+    function computerPlay(){
+
+      switch (getRandom(1,3)) {
+        case 1:
+          return "rock"
+          break;
+        case 2:
+          return "paper"
+          break;
+        case 3:
+          return "scissors"
+          break;
+      }
+      function getRandom(min,max){
+        return Math.floor(Math.random() * (max-min+1)) + min
+      }
+    }
+
+  </script>
+</body>
+</html
